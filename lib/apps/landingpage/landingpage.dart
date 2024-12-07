@@ -63,7 +63,9 @@ class LandingPage extends StatelessWidget {
                           const SizedBox(width: 16),
                           Expanded(
                             child: OutlinedButton(
-                              onPressed: () {},
+                               onPressed: () {
+                      Navigator.pushNamed(context, '/signuppage'); // Navigasi ke SignUpPage
+                    },
                               style: OutlinedButton.styleFrom(
                                 minimumSize: const Size(double.infinity, 50),
                                 side: const BorderSide(color: Colors.blue),

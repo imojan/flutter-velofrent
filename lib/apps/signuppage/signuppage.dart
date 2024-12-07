@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  bool _isPasswordVisible = false; // Untuk melacak visibility password
+  bool _isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,102 +21,94 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Stack(
           children: [
-            // Konten utama
             Column(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  children: [
-    const SizedBox(height: 10),
-    // Logo di bagian atas
-    Image.asset(
-      'asset/bg-velo.png', // Path ke logo
-      width: 300, // Perbesar ukuran logo
-    ),
-    const SizedBox(height: 10), // Kurangi jarak antara logo dan card form
-    // Card untuk form login
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: Card(
-        elevation: 4,
-        color: const Color.fromARGB(255, 245, 245, 245),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text(
-                "Selamat Datang di VeloFRent!",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                "Silahkan masukkan akun terlebih dahulu!",
-                style: TextStyle(
-                  fontSize: 10,
-                  color: Colors.black54,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 24),
-              // Form username
-              _buildTextField(
-                controller: usernameController,
-                hintText: 'Username/No. Telepon atau E-mail',
-                icon: Icons.person,
-              ),
-              const SizedBox(height: 16),
-              // Form password
-              _buildTextField(
-                controller: passwordController,
-                hintText: 'Kata Sandi',
-                icon: Icons.lock,
-                isPassword: true,
-              ),
-              const SizedBox(height: 16),
-              // Tombol "Masuk"
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0058BC),
-                    fixedSize: const Size(250, 30),
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SizedBox(height: 10),
+                // Form Sign Up
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Card(
+                    elevation: 4,
+                    color: const Color.fromARGB(255, 245, 245, 245),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                    elevation: 2,
-                  ),
-                  child: const Text(
-                    'Masuk',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            "Selamat Datang di Ruang VeloFRent!",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 8),
+                          const Text(
+                            "Buat akunmu terlebih dahulu, jika belum memiliki akun.",
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.black54,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 24),
+                          // Input fields
+                          _buildTextField(
+                            controller: phoneController,
+                            hintText: 'No. Telepon',
+                            icon: Icons.phone,
+                          ),
+                          const SizedBox(height: 16),
+                          _buildTextField(
+                            controller: emailController,
+                            hintText: 'Masukkan Email Kamu di sini',
+                            icon: Icons.email,
+                          ),
+                          const SizedBox(height: 16),
+                          _buildTextField(
+                            controller: usernameController,
+                            hintText: 'Buat Username Kamu di sini',
+                            icon: Icons.person,
+                          ),
+                          const SizedBox(height: 16),
+                          _buildTextField(
+                            controller: passwordController,
+                            hintText: 'Buat Kata Sandi',
+                            icon: Icons.lock,
+                            isPassword: true,
+                          ),
+                          const SizedBox(height: 16),
+                          Center(
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF0058BC),
+                                fixedSize: const Size(250, 45),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                elevation: 2,
+                              ),
+                              child: const Text(
+                                'Buat Akun',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  'Belum punya akun? Daftar',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.blue,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
                 const SizedBox(height: 20),
                 // Login dengan sosial media
                 Column(
@@ -172,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 16.0),
                   child: Text(
-                    '©️2024 VeloRent | All rights reserved.',
+                    '©️2024 VeloFRent | All rights reserved.',
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.black54,
@@ -181,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-            // Tombol kembali di pojok kiri atas + Teks "Login" di tengah
+            // Tombol kembali di pojok kiri atas
             Positioned(
               top: 16,
               left: 14,
@@ -192,27 +186,25 @@ class _LoginPageState extends State<LoginPage> {
                   IconButton(
                     icon: const Icon(
                       Icons.arrow_back,
-                      color: Colors.black, // Warna ikon
+                      color: Colors.black,
                     ),
                     onPressed: () {
-                      Navigator.pop(context,
-                          '/landingpage'); // Navigasi kembali ke halaman sebelumnya
+                      Navigator.pop(context);
                     },
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Text(
-                      'Login',
+                      'Buat Akun',
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black, // Warna teks
+                        color: Colors.black,
                       ),
                     ),
                   ),
                   const SizedBox(
-                    width:
-                        62, // Memberikan ruang kosong agar IconButton tetap sejajar
+                    width: 62, // Placeholder untuk tombol kembali
                   ),
                 ],
               ),
@@ -231,32 +223,15 @@ class _LoginPageState extends State<LoginPage> {
   }) {
     return TextField(
       controller: controller,
-      obscureText: isPassword &&
-          !_isPasswordVisible, // Sembunyikan teks jika bukan password visible
-      style: TextStyle(
-        fontStyle:
-            controller.text.isEmpty ? FontStyle.italic : FontStyle.normal,
-        fontSize: 14,
-      ),
-      onChanged: (value) {
-        setState(() {}); // Memperbarui UI saat teks berubah
-      },
+      obscureText: isPassword && !_isPasswordVisible,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(
-          fontStyle: FontStyle.italic, // Hint text italic
-          fontSize: 14,
-          color: Color.fromARGB(115, 0, 0, 0), // Warna hint teks
-        ),
-        prefixIcon: Icon(
-          icon,
-          color: const Color.fromARGB(135, 0, 0, 0), // Warna ikon
-        ),
+        prefixIcon: Icon(icon, color: Colors.black54),
         suffixIcon: isPassword
             ? IconButton(
                 icon: Icon(
                   _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                  color: const Color.fromARGB(137, 0, 0, 0), // Warna ikon
+                  color: Colors.black54,
                 ),
                 onPressed: () {
                   setState(() {
@@ -266,15 +241,10 @@ class _LoginPageState extends State<LoginPage> {
               )
             : null,
         enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Color.fromARGB(115, 0, 0, 0), // Warna garis bawah default
-          ),
+          borderSide: BorderSide(color: Colors.black26),
         ),
         focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.blue, // Warna garis bawah saat fokus
-            width: 2, // Ketebalan garis saat fokus
-          ),
+          borderSide: BorderSide(color: Colors.blue),
         ),
       ),
     );

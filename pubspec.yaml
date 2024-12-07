@@ -63,6 +63,8 @@ flutter:
     - asset/google.webp
     - asset/facebook.png
     - asset/2.png
+    - asset/bg-velo.png
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -81,6 +83,7 @@ flutter:
         - asset: fonts/Montserrat-Bold.ttf
           weight: 700
         - asset: fonts/Montserrat-Medium.ttf
+          weight: 500
         - asset: fonts/Montserrat-Regular.ttf
         - asset: fonts/Montserrat-SemiBold.ttf
 
