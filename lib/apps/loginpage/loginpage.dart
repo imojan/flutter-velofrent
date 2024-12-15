@@ -21,100 +21,104 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             // Konten utama
             Column(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  children: [
-    const SizedBox(height: 10),
-    // Logo di bagian atas
-    Image.asset(
-      'asset/bg-velo.png', // Path ke logo
-      width: 300, // Perbesar ukuran logo
-    ),
-    const SizedBox(height: 10), // Kurangi jarak antara logo dan card form
-    // Card untuk form login
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: Card(
-        elevation: 4,
-        color: const Color.fromARGB(255, 245, 245, 245),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text(
-                "Selamat Datang di VeloFRent!",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SizedBox(height: 10),
+                // Logo di bagian atas
+                Image.asset(
+                  'asset/bg-velo.png', // Path ke logo
+                  width: 300, // Perbesar ukuran logo
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                "Silahkan masukkan akun terlebih dahulu!",
-                style: TextStyle(
-                  fontSize: 10,
-                  color: Colors.black54,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 24),
-              // Form username
-              _buildTextField(
-                controller: usernameController,
-                hintText: 'Username/No. Telepon atau E-mail',
-                icon: Icons.person,
-              ),
-              const SizedBox(height: 16),
-              // Form password
-              _buildTextField(
-                controller: passwordController,
-                hintText: 'Kata Sandi',
-                icon: Icons.lock,
-                isPassword: true,
-              ),
-              const SizedBox(height: 16),
-              // Tombol "Masuk"
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0058BC),
-                    fixedSize: const Size(250, 30),
+                const SizedBox(
+                    height: 10), // Kurangi jarak antara logo dan card form
+                // Card untuk form login
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Card(
+                    elevation: 4,
+                    color: const Color.fromARGB(255, 245, 245, 245),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                    elevation: 2,
-                  ),
-                  child: const Text(
-                    'Masuk',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            "Selamat Datang di VeloFRent!",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 8),
+                          const Text(
+                            "Silahkan masukkan akun terlebih dahulu!",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black54,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 24),
+                          // Form username
+                          _buildTextField(
+                            controller: usernameController,
+                            hintText: 'Username/No. Telepon atau E-mail',
+                            icon: Icons.person,
+                          ),
+                          const SizedBox(height: 16),
+                          // Form password
+                          _buildTextField(
+                            controller: passwordController,
+                            hintText: 'Kata Sandi',
+                            icon: Icons.lock,
+                            isPassword: true,
+                          ),
+                          const SizedBox(height: 16),
+                          // Tombol "Masuk"
+                          Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                      Navigator.pushNamed(context,
+                          '/homepage'); // Navigasi kembali ke halaman sebelumnya
+                    },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF0058BC),
+                                fixedSize: const Size(250, 30),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                elevation: 2,
+                              ),
+                              child: const Text(
+                                'Masuk',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          GestureDetector(
+                            onTap: () {},
+                            child: const Text(
+                              'Belum punya akun? Daftar',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.blue,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  'Belum punya akun? Daftar',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.blue,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
                 const SizedBox(height: 20),
                 // Login dengan sosial media
                 Column(

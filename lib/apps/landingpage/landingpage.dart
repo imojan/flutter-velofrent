@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
@@ -42,9 +41,12 @@ class LandingPage extends StatelessWidget {
                         children: [
                           Expanded(
                             child: ElevatedButton(
-                              onPressed: () { Navigator.pushNamed(context, '/loginpage');},
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/loginpage');
+                              },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color.fromARGB(255, 0, 84, 154), // Warna biru untuk tombol
+                                backgroundColor: const Color.fromARGB(
+                                    255, 0, 84, 154), // Warna biru untuk tombol
                                 minimumSize: const Size(double.infinity, 50),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
@@ -55,7 +57,8 @@ class LandingPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.white, // Teks putih
-                                  fontWeight: FontWeight.bold, // Menjadikan teks bold
+                                  fontWeight:
+                                      FontWeight.bold, // Menjadikan teks bold
                                 ),
                               ),
                             ),
@@ -63,9 +66,10 @@ class LandingPage extends StatelessWidget {
                           const SizedBox(width: 16),
                           Expanded(
                             child: OutlinedButton(
-                               onPressed: () {
-                      Navigator.pushNamed(context, '/signuppage'); // Navigasi ke SignUpPage
-                    },
+                              onPressed: () {
+                                Navigator.pushNamed(context,
+                                    '/signuppage'); // Navigasi ke SignUpPage
+                              },
                               style: OutlinedButton.styleFrom(
                                 minimumSize: const Size(double.infinity, 50),
                                 side: const BorderSide(color: Colors.blue),
@@ -78,7 +82,8 @@ class LandingPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.blue,
-                                  fontWeight: FontWeight.bold, // Menjadikan teks bold
+                                  fontWeight:
+                                      FontWeight.bold, // Menjadikan teks bold
                                 ),
                               ),
                             ),
@@ -164,7 +169,8 @@ class LandingPage extends StatelessWidget {
     return OutlinedButton(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        minimumSize: Size(MediaQuery.of(context).size.width * 0.8, 50), // Tombol akan mengambil 80% dari lebar layar
+        minimumSize: Size(MediaQuery.of(context).size.width * 0.8,
+            50), // Tombol akan mengambil 80% dari lebar layar
         side: BorderSide(color: Colors.grey.shade300),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),

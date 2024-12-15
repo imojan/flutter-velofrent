@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'apps/loginpage/loginpage.dart';
 import 'apps/landingpage/landingpage.dart';
 import 'apps/signuppage/signuppage.dart';
+import 'apps/homepage/homepage.dart';
 
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'VeloForRent',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/loginpage': (context) => LoginPage(),
         '/landingpage': (context) => LandingPage(),
         '/signuppage': (context) => SignUpPage(),
+        '/homepage': (context) => HomePage(),
       },
     );
   }
